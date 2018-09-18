@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather forecast</title>
+    <link rel="stylesheet" href="./assets/css/styles.css"/>
+</head>
+<body>
+    <main>
+        <h1 class="center">Weather forecast</h1>
+        <div class="row">
+            <div class="w-50">
+                <div id="weeklyForecastSummary" class="hidden"></div>
+                <ul id="upcomingDaysList" class="list-unstyled"></ul>
+                <div class="form-group">
+                    <label for="citySelect">Please choose city</label>
+                    <select name="city" id="citySelect" class="form-group-input"></select>
+                </div>
+            </div>
+            <div class="w-50">
+                <section id="forecastContainer" class="hidden">
+                </section>
+            </div>
+        </div>
+    </main>
+    <template id="forecastTemplate">
+        <ul class="list-unstyled">
+            <li>
+                <strong>Summary: </strong>
+                <img src="./assets/img/%icon%.png" height="16"> <strong>%summary%</strong>
+            </li>
+            <li>
+                <strong>Temperature High:</strong>
+                %temperatureHigh%C at %temperatureHighTime%
+            </li>
+            <li>
+                <strong>Temperature Low:</strong>
+                %temperatureLow%C at %temperatureLowTime%
+            </li>
+            <li>
+                <strong>Pressure:</strong>
+                %pressure%hp
+            </li>
+            <li>
+                <strong>Date:</strong>
+                %time%
+            </li>
+        </ul>
+    </template>
+    <template id="weeklyForecastTemplate">
+        <p>
+            <img src="./assets/img/%icon%.png" height="32"/>
+            %summary%
+        </p>
+    </template>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./assets/js/index.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfuy8-RLfqUXV_Y3oDOIF7S70dq4Jx47c&callback=initMap"
+            type="text/javascript"></script>
+</body>
+</html>
